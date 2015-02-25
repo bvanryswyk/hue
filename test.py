@@ -21,16 +21,8 @@ def getSystemData():
   return bridge.config.get(resource)['resource']                                    
 
 def main():                                                                         
-  response = getSystemData()                                                        
-
-  if 'lights' in response:                                                          
-      print 'Connected to the Hub'                                                  
-      print response['lights']                                                      
-  elif 'error' in response[0]:                                                      
-      error = response[0]['error']                                                  
-      if error['type'] == 1:                                                        
-          createConfig()                                                            
-          main()                                                                    
+	resource = {'which':4}
+	print(bridge.light.get(resource))
 
 main()                                                                              
 
